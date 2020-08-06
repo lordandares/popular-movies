@@ -1,0 +1,7 @@
+{
+  "name": "popular-movies",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
