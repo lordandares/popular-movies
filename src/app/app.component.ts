@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { TranslateService } from '@ngx-translate/core';
+import { Device } from '@ionic-native/device/ngx';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private network: Network,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private device: Device
   ) {
     this.initializeApp();
   }
@@ -36,7 +38,7 @@ export class AppComponent {
     if(!lang){
       sessionStorage.setItem('lang', 'es');
     }
-
+    console.log('Device UUID is: ' + this.device.uuid);
     
   }
 }
