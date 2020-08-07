@@ -6,6 +6,9 @@ import { ExploreContainerComponentModule } from 'src/app/explore-container/explo
 import { LastMovieRoutingModule } from './last-movie.routing.module';
 import { LastMovieComponent } from './last-movie.component';
 import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { createTranslateLoader } from 'src/app/app.module';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -16,7 +19,15 @@ import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.com
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    LastMovieRoutingModule
+    LastMovieRoutingModule,
+    TranslateModule,
+    TranslateModule.forChild({
+      loader:{
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      },
+    })
   ]
 })
 export class LastMovieModule { }

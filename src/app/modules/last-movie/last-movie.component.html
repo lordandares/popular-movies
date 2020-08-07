@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Last Movie
+      {{ 'LAST_MOVIES' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,10 +9,15 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Last Movie </ion-title>
+      <ion-title size="large">{{ 'LAST_MOVIES' | translate }}</ion-title>
      
     </ion-toolbar>
   </ion-header>
 
   <app-movie-card  [card]="lastMovie"></app-movie-card>
+
+  <ion-label *ngIf='language'>{{'SPANISH' | translate}}</ion-label>
+  <ion-label *ngIf='!language'>{{'ENGLISH' | translate}}</ion-label>
+  <ion-toggle [(ngModel)]="language" [ionChange]="changeLang()"></ion-toggle>
+
 </ion-content>

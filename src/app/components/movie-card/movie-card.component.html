@@ -1,12 +1,12 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-subtitle>Popularty: {{card.popularity}}</ion-card-subtitle>
+    <ion-card-subtitle>{{'POPULARITY' | translate }}: {{card.popularity}}</ion-card-subtitle>
     <ion-card-title>{{card.original_title}}</ion-card-title>
-    <ion-card-subtitle>Release Date: {{card.release_date}}</ion-card-subtitle>
+    <ion-card-subtitle>{{'RELEASE_DATE' | translate }}: {{card.release_date}}</ion-card-subtitle>
   </ion-card-header>
   <ion-item>
       <img src="{{poster}}">
-    <ion-button [routerLink]="['detail']" [queryParams]="{id: card.id}" fill="outline" slot="end">View</ion-button>
+    <ion-button [routerLink]="['detail']" [queryParams]="{id: card.id}" fill="outline" slot="end">{{ 'VIEW' | translate }}</ion-button>
   </ion-item>
   <ion-card-content>
     {{card.overview}}

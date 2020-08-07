@@ -1,8 +1,8 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-subtitle>Popularty: {{card.popularity}}</ion-card-subtitle>
+    <ion-card-subtitle>{{'POPULARITY' | translate }}: {{card.popularity}}</ion-card-subtitle>
     <ion-card-title>{{card.original_title}}</ion-card-title>
-    <ion-card-subtitle>Release Date: {{card.release_date}}</ion-card-subtitle>
+    <ion-card-subtitle>{{'RELEASE_DATE' | translate }}: {{card.release_date}}</ion-card-subtitle>
   </ion-card-header>
   <ion-item>
       <img src="{{poster}}">
@@ -11,10 +11,10 @@
     {{card.overview}}
   </ion-card-content>
   <ion-card-header>
-    <ion-card-subtitle>Vote Count: {{card.vote_count}}</ion-card-subtitle>
-    <ion-card-subtitle>Original Language: {{card.original_language}}</ion-card-subtitle>
-    <ion-card-subtitle>Vote Average: {{card.vote_average}}</ion-card-subtitle>
-    <ion-card-title>{{card.original_title}}</ion-card-title>
-    <ion-card-subtitle>Release Date: {{card.release_date}}</ion-card-subtitle>
+    <ion-card-subtitle>{{'VOTE_COUNT' | translate }}: {{card.vote_count}}</ion-card-subtitle>
+    <ion-card-subtitle>{{'ORIGINAL_LANGUAGE' | translate }}: {{card.original_language}}</ion-card-subtitle>
+    <ion-card-subtitle>{{'VOTE_AVERAGE' | translate }}: {{card.vote_average}}</ion-card-subtitle>
+    <ion-card-subtitle>{{'ORIGINAL_TITLE' | translate }}: {{card.original_title}}</ion-card-subtitle>
+    <ion-card-subtitle>{{'RELEASE_DATE' | translate }}: {{card.release_date}}</ion-card-subtitle>
   </ion-card-header>
 </ion-card>

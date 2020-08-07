@@ -1,7 +1,8 @@
 {
   "name": "popular-movies",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

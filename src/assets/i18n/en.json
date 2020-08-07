@@ -1,0 +1,12 @@
+{
+    "VIEW": "View",
+    "LIST_MOVIES": "List Movies",
+    "LAST_MOVIES": "Last Movies",
+    "POPULARITY": "Popularity",
+    "RELEASE_DATE": "Release Date",
+    "VOTE_COUNT": "Vote Count",
+    "ORIGINAL_LANGUAGE": "Original Language",
+    "VOTE_AVERAGE": "Vote Average",
+    "SPANISH": "Spanish",
+    "ENGLISH": "English"
+}

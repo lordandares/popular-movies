@@ -8,6 +8,9 @@ import { ListMoviesComponent } from './list-movies.component';
 import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.component';
 import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 import { MovieDetailComponent } from 'src/app/components/movie-detail/movie-detail.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { createTranslateLoader } from 'src/app/app.module';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -18,7 +21,15 @@ import { MovieDetailComponent } from 'src/app/components/movie-detail/movie-deta
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    ListMoviesRoutingModule
+    ListMoviesRoutingModule,
+    TranslateModule,
+    TranslateModule.forChild({
+      loader:{
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      },
+    })
   ]
 })
 export class ListMoviesModule { }
