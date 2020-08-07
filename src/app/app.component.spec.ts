@@ -6,16 +6,36 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
+import { Network } from '@ionic-native/network/ngx';
+import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 
 describe('AppComponent', () => {
 
-  let statusBarSpy, splashScreenSpy, platformReadySpy, platformSpy;
+  let statusBarSpy, 
+      splashScreenSpy, 
+      platformReadySpy, 
+      platformSpy, 
+      networkSpy, 
+      translateSpy;
 
   beforeEach(async(() => {
     statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
     splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
     platformReadySpy = Promise.resolve();
     platformSpy = jasmine.createSpyObj('Platform', { ready: platformReadySpy });
+    networkSpy = jasmine.createSpyObj('Network', ['onDisconnect']);
+    translateSpy = jasmine.createSpyObj('TranslateService', ['setDefaultLang', 'use']);
+
+    networkSpy.onDisconnect.and.callFake(function() {
+      return new Observable();
+    });
+    translateSpy.setDefaultLang.and.callFake(function() {
+      return true;
+    });
+    translateSpy.use.and.callFake(function() {
+      return true;
+    });
 
     TestBed.configureTestingModule({
       declarations: [AppComponent],
@@ -24,6 +44,8 @@ describe('AppComponent', () => {
         { provide: StatusBar, useValue: statusBarSpy },
         { provide: SplashScreen, useValue: splashScreenSpy },
         { provide: Platform, useValue: platformSpy },
+        { provide: TranslateService, useValue: translateSpy },
+        { provide: Network, useValue: networkSpy },
       ],
     }).compileComponents();
   }));

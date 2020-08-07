@@ -16,7 +16,7 @@ export class LastMovieComponent implements OnInit {
   language = true;
 
   constructor(private themoviedbService: ThemoviedbService, private translate: TranslateService) {
-    this.themoviedbService.latestMovie().subscribe(data=>{
+    this.themoviedbService.latestMovie(sessionStorage.getItem('lang')).subscribe(data=>{
       this.lastMovie = data;
     })
   

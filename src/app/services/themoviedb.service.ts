@@ -13,17 +13,17 @@ export class ThemoviedbService {
 
   
   // this method returns lastMovie in form of Observable
-  latestMovie(): Observable<any> {
-    return this.http.get(API_URL + LATEST_MOVIE  + '?language=' + sessionStorage.getItem('lang'));
+  latestMovie(lang): Observable<any> {
+    return this.http.get(API_URL + LATEST_MOVIE  + '?language=' + lang);
   }
 
   // this method returns lastMovie in form of Observable
-  listMovies(pages): Observable<any> {
-    return this.http.get(API_URL + LIST_MOVIES + pages + '&language=' + sessionStorage.getItem('lang'));
+  listMovies(pages, lang): Observable<any> {
+    return this.http.get(API_URL + LIST_MOVIES + pages + '&language=' + lang);
   }
 
     // this method returns lastMovie in form of Observable
-  detailMovie(id): Observable<any> {
-    return this.http.get(API_URL + DETAIL_MOVIE + id  + '&language=' + sessionStorage.getItem('lang'));
+  detailMovie(id, lang): Observable<any> {
+    return this.http.get(API_URL + DETAIL_MOVIE + id  + '&language=' + lang);
   }
 }

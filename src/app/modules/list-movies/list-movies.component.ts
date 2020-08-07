@@ -15,7 +15,7 @@ export class ListMoviesComponent implements OnInit {
   pages = INITIAL_PAGES_NUMBER;
 
   constructor(private themoviedbService: ThemoviedbService) {
-    this.themoviedbService.listMovies(this.pages).subscribe(data=>{
+    this.themoviedbService.listMovies(this.pages,sessionStorage.getItem('lang')).subscribe(data=>{
       this.listMovies = data;
       console.log(this.listMovies);
     })

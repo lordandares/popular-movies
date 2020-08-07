@@ -2,6 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { MovieCardComponent } from './movie-card.component';
+import { TranslateService, TranslateLoader, TranslateModule, TranslateStore } from '@ngx-translate/core';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { createTranslateLoader } from 'src/app/app.module';
+import { UrlSerializer, Router } from '@angular/router';
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
@@ -10,7 +14,23 @@ describe('MovieCardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MovieCardComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(),
+        TranslateModule.forChild({
+          loader:{
+            provide: TranslateLoader,
+            useFactory: createTranslateLoader,
+            deps: [HttpClient]
+          },
+        }),
+      ],
+      providers: [
+        HttpClient,
+        TranslateService, 
+        TranslateStore,
+        HttpHandler,
+        UrlSerializer,
+        Router
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(MovieCardComponent);
@@ -18,7 +38,4 @@ describe('MovieCardComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
