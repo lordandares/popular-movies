@@ -14,11 +14,10 @@ export class MovieDetailComponent implements OnInit {
 
   poster: string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
     console.log(this.card)
-
 
     this.poster = this.card.poster_path? URL_IMG + this.card.poster_path: 'https://cdn4.iconfinder.com/data/icons/movie-basics/48/v-47-512.png' ;
   }

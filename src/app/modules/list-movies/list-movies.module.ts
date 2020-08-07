@@ -7,11 +7,12 @@ import { ListMoviesRoutingModule } from './list-movies.routing.module';
 import { ListMoviesComponent } from './list-movies.component';
 import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.component';
 import { DetailMovieComponent } from './detail-movie/detail-movie.component';
+import { MovieDetailComponent } from 'src/app/components/movie-detail/movie-detail.component';
 
 
 
 @NgModule({
-  declarations: [ ListMoviesComponent, MovieCardComponent, DetailMovieComponent],
+  declarations: [ ListMoviesComponent, MovieCardComponent, DetailMovieComponent , MovieDetailComponent],
   imports: [
     IonicModule,
     CommonModule,

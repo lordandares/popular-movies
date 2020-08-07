@@ -11,13 +11,17 @@ import { ThemoviedbService } from '../../../services/themoviedb.service';
 export class DetailMovieComponent implements OnInit {
 
   id:string;
-  detail: any;
+  detail: any = null;
+  title:string;
 
   constructor(private route: ActivatedRoute, private themoviedbService: ThemoviedbService) {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
       this.themoviedbService.detailMovie(this.id).subscribe(data=>{
         this.detail = data;
+        if(this.detail.original_title && this.detail.original_title.length > 15){
+          this.title = this.detail.original_title.substring(0, 15) + '...';
+        }
         console.log(this.detail);
       })
     });
