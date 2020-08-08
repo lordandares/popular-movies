@@ -9,5 +9,10 @@
     "ORIGINAL_TITLE": "Titulo Original",
     "VOTE_AVERAGE": "Vote Average",
     "SPANISH": "Espanol",
-    "ENGLISH": "Ingles"
+    "ENGLISH": "Ingles",
+    "LOGIN": "Inicio sesion",
+    "ENTER": "ENTRAR",
+    "LOG_OUT": "CERRAR SESSION",
+    "SETTINGS" : "Configuraciones",
+    "TITLE": "Peliculas Populares V1.0"
 }

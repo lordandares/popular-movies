@@ -16,8 +16,6 @@
 
   <app-movie-card  [card]="lastMovie"></app-movie-card>
 
-  <ion-label *ngIf='language'>{{'SPANISH' | translate}}</ion-label>
-  <ion-label *ngIf='!language'>{{'ENGLISH' | translate}}</ion-label>
-  <ion-toggle [(ngModel)]="language" [ionChange]="changeLang()"></ion-toggle>
+  <app-settings></app-settings>
 
 </ion-content>

@@ -8,5 +8,10 @@
     "ORIGINAL_LANGUAGE": "Original Language",
     "VOTE_AVERAGE": "Vote Average",
     "SPANISH": "Spanish",
-    "ENGLISH": "English"
+    "ENGLISH": "English",
+    "LOGIN": "Login",
+    "ENTER": "ENTER",
+    "LOG_OUT": "LOG OUT",
+    "SETTINGS" : "SETTINGS",
+    "TITLE" : "Popular Movies V1.0"
 }

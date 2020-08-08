@@ -9,11 +9,11 @@ import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.com
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/app/app.module';
 import { HttpClient } from '@angular/common/http';
-
+import { SettingsComponent } from '../../components/settings/settings.component'
 
 
 @NgModule({
-  declarations: [ LastMovieComponent, MovieCardComponent],
+  declarations: [ LastMovieComponent, MovieCardComponent, SettingsComponent ],
   imports: [
     IonicModule,
     CommonModule,

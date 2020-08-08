@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LastMovieComponent } from './last-movie.component';
-import { AuthGuard } from 'src/app/auth/auth.guard';
+import { LoginComponent } from './login.component';
 
 const routes: Routes = [
   {
     path: '',
-    canActivate: [ AuthGuard ],
-    component: LastMovieComponent,
-  }
+    component: LoginComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LastMovieRoutingModule {}
+export class LoginRoutingModule {}
