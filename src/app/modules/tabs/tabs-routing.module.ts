@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { AuthGuard } from '../../auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,14 +10,17 @@ const routes: Routes = [
     children: [
       {
         path: 'list',
-        loadChildren: () => import('../modules/list-movies/list-movies.module').then(m => m.ListMoviesModule)
+        canActivate: [ AuthGuard ],
+        loadChildren: () => import('../list-movies/list-movies.module').then(m => m.ListMoviesModule)
       },
       {
         path: 'last',
-        loadChildren: () => import('../modules/last-movie/last-movie.module').then(m => m.LastMovieModule)
+        canActivate: [ AuthGuard ],
+        loadChildren: () => import('../last-movie/last-movie.module').then(m => m.LastMovieModule)
       },
       {
         path: '',
+        canActivate: [ AuthGuard ],
         redirectTo: '/tabs/list',
         pathMatch: 'full'
       }

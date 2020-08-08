@@ -1,0 +1,13 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{'SETTINGS' | translate }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-label *ngIf='language'>{{'SPANISH' | translate}}</ion-label>
+    <ion-label *ngIf='!language'>{{'ENGLISH' | translate}}</ion-label>
+    <ion-toggle [(ngModel)]="language" [ionChange]="changeLang()"></ion-toggle>
+    <ion-button (click)="logout()">
+      {{'LOG_OUT' | translate }}
+    </ion-button>
+  </ion-card-content>
+</ion-card>

@@ -1,21 +1,25 @@
-import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
-
-import { TabsPageRoutingModule } from './tabs-routing.module';
-
-import { TabsPage } from './tabs.page';
+import { IonicModule } from '@ionic/angular';
+import { ExploreContainerComponentModule } from 'src/app/explore-container/explore-container.module';
+import { LoginRoutingModule } from './login.routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { createTranslateLoader } from '../app.module';
+import { createTranslateLoader } from 'src/app/app.module';
 import { HttpClient } from '@angular/common/http';
 
+
+
 @NgModule({
+  declarations: [ LoginComponent],
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    TabsPageRoutingModule,
+    ExploreContainerComponentModule,
+    LoginRoutingModule,
+    TranslateModule,
     TranslateModule.forChild({
       loader:{
         provide: TranslateLoader,
@@ -23,7 +27,6 @@ import { HttpClient } from '@angular/common/http';
         deps: [HttpClient]
       },
     })
-  ],
-  declarations: [TabsPage]
+  ]
 })
-export class TabsPageModule {}
+export class LoginModule { }
