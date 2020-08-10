@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TabsPage } from './tabs.page';
 import { TranslateModule, TranslateLoader, TranslateService, TranslateStore } from '@ngx-translate/core';
-import { createTranslateLoader } from '../app.module';
+import { createTranslateLoader } from '../../app.module';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 import { UrlSerializer, ChildrenOutletContexts, Router } from '@angular/router';

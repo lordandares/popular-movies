@@ -45,15 +45,16 @@
                 Password is required
             </p>
         </ion-list>
+        <ion-button (click)="loginUser()">
+          {{'ENTER' | translate }}
+        </ion-button>
       </form>
-      <ion-label *ngIf='language'>{{'SPANISH' | translate}}</ion-label>
-      <ion-label *ngIf='!language'>{{'ENGLISH' | translate}}</ion-label>
-      <ion-toggle [(ngModel)]="language" [ionChange]="changeLang()"></ion-toggle>
-      <ion-button (click)="loginUser()">
-        {{'ENTER' | translate }}
-      </ion-button>
+
     </ion-card-content>
   </ion-card>
+  <ion-label *ngIf='language'>{{'SPANISH' | translate}}</ion-label>
+  <ion-label *ngIf='!language'>{{'ENGLISH' | translate}}</ion-label>
+  <ion-toggle [(ngModel)]="language" [ionChange]="changeLang()"></ion-toggle>
 
   
 </ion-content>

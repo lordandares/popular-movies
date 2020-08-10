@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-list-movies-list-movies-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["list-movies-list-movies-module"],{
 
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/movie-detail/movie-detail.component.html":
 /*!***********************************************************************************************************!*\
@@ -196,7 +196,10 @@ let ListMoviesComponent = class ListMoviesComponent {
         this.pages = src_app_common_constants__WEBPACK_IMPORTED_MODULE_3__["INITIAL_PAGES_NUMBER"];
         this.themoviedbService.listMovies(this.pages, sessionStorage.getItem('lang')).subscribe(data => {
             this.listMovies = data;
-            console.log(this.listMovies);
+            sessionStorage.setItem('listMovies', JSON.stringify(data));
+        }, err => {
+            console.log(err);
+            this.listMovies = sessionStorage.getItem('listMovies') ? JSON.parse(sessionStorage.getItem('listMovies')) : {};
         });
     }
     ngOnInit() {
@@ -297,6 +300,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _list_movies_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./list-movies.component */ "./src/app/modules/list-movies/list-movies.component.ts");
 /* harmony import */ var _detail_movie_detail_movie_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./detail-movie/detail-movie.component */ "./src/app/modules/list-movies/detail-movie/detail-movie.component.ts");
+/* harmony import */ var src_app_auth_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+
 
 
 
@@ -305,10 +310,12 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
+        canActivate: [src_app_auth_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]],
         component: _list_movies_component__WEBPACK_IMPORTED_MODULE_3__["ListMoviesComponent"],
     },
     {
         path: 'detail',
+        canActivate: [src_app_auth_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]],
         component: _detail_movie_detail_movie_component__WEBPACK_IMPORTED_MODULE_4__["DetailMovieComponent"],
     }
 ];
@@ -326,4 +333,4 @@ ListMoviesRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
 /***/ })
 
 }]);
-//# sourceMappingURL=modules-list-movies-list-movies-module-es2015.js.map
+//# sourceMappingURL=list-movies-list-movies-module-es2015.js.map

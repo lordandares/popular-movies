@@ -4,7 +4,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-list-movies-list-movies-module"], {
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["list-movies-list-movies-module"], {
   /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/components/movie-detail/movie-detail.component.html":
   /*!***********************************************************************************************************!*\
@@ -345,7 +345,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.pages = src_app_common_constants__WEBPACK_IMPORTED_MODULE_3__["INITIAL_PAGES_NUMBER"];
         this.themoviedbService.listMovies(this.pages, sessionStorage.getItem('lang')).subscribe(function (data) {
           _this2.listMovies = data;
-          console.log(_this2.listMovies);
+          sessionStorage.setItem('listMovies', JSON.stringify(data));
+        }, function (err) {
+          console.log(err);
+          _this2.listMovies = sessionStorage.getItem('listMovies') ? JSON.parse(sessionStorage.getItem('listMovies')) : {};
         });
       }
 
@@ -545,12 +548,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _detail_movie_detail_movie_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./detail-movie/detail-movie.component */
     "./src/app/modules/list-movies/detail-movie/detail-movie.component.ts");
+    /* harmony import */
+
+
+    var src_app_auth_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/auth/auth.guard */
+    "./src/app/auth/auth.guard.ts");
 
     var routes = [{
       path: '',
+      canActivate: [src_app_auth_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]],
       component: _list_movies_component__WEBPACK_IMPORTED_MODULE_3__["ListMoviesComponent"]
     }, {
       path: 'detail',
+      canActivate: [src_app_auth_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]],
       component: _detail_movie_detail_movie_component__WEBPACK_IMPORTED_MODULE_4__["DetailMovieComponent"]
     }];
 
@@ -565,4 +576,4 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /***/
   }
 }]);
-//# sourceMappingURL=modules-list-movies-list-movies-module-es5.js.map
+//# sourceMappingURL=list-movies-list-movies-module-es5.js.map
