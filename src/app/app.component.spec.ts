@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { Network } from '@ionic-native/network/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
+import { Device } from '@ionic-native/device/ngx';
 
 describe('AppComponent', () => {
 
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
       platformReadySpy, 
       platformSpy, 
       networkSpy, 
-      translateSpy;
+      translateSpy,
+      deviceSpy;
 
   beforeEach(async(() => {
     statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
@@ -25,6 +27,7 @@ describe('AppComponent', () => {
     platformReadySpy = Promise.resolve();
     platformSpy = jasmine.createSpyObj('Platform', { ready: platformReadySpy });
     networkSpy = jasmine.createSpyObj('Network', ['onDisconnect']);
+    deviceSpy = jasmine.createSpyObj('Network', ['onDisconnect']);
     translateSpy = jasmine.createSpyObj('TranslateService', ['setDefaultLang', 'use']);
 
     networkSpy.onDisconnect.and.callFake(function() {
@@ -46,6 +49,7 @@ describe('AppComponent', () => {
         { provide: Platform, useValue: platformSpy },
         { provide: TranslateService, useValue: translateSpy },
         { provide: Network, useValue: networkSpy },
+        { provide: Device, useValue: deviceSpy },
       ],
     }).compileComponents();
   }));

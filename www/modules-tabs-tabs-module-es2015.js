@@ -1,9 +1,9 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["tabs-tabs-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-tabs-tabs-module"],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/tabs/tabs.page.html":
-/*!***************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/tabs/tabs.page.html ***!
-  \***************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/tabs/tabs.page.html":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/tabs/tabs.page.html ***!
+  \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13,10 +13,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/tabs/tabs-routing.module.ts":
-/*!*********************************************!*\
-  !*** ./src/app/tabs/tabs-routing.module.ts ***!
-  \*********************************************/
+/***/ "./src/app/modules/tabs/tabs-routing.module.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/modules/tabs/tabs-routing.module.ts ***!
+  \*****************************************************/
 /*! exports provided: TabsPageRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -26,7 +26,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _tabs_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tabs.page */ "./src/app/tabs/tabs.page.ts");
+/* harmony import */ var _tabs_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tabs.page */ "./src/app/modules/tabs/tabs.page.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+
 
 
 
@@ -38,14 +40,17 @@ const routes = [
         children: [
             {
                 path: 'list',
-                loadChildren: () => Promise.all(/*! import() | modules-list-movies-list-movies-module */[__webpack_require__.e("common"), __webpack_require__.e("modules-list-movies-list-movies-module")]).then(__webpack_require__.bind(null, /*! ../modules/list-movies/list-movies.module */ "./src/app/modules/list-movies/list-movies.module.ts")).then(m => m.ListMoviesModule)
+                canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
+                loadChildren: () => Promise.all(/*! import() | list-movies-list-movies-module */[__webpack_require__.e("common"), __webpack_require__.e("list-movies-list-movies-module")]).then(__webpack_require__.bind(null, /*! ../list-movies/list-movies.module */ "./src/app/modules/list-movies/list-movies.module.ts")).then(m => m.ListMoviesModule)
             },
             {
                 path: 'last',
-                loadChildren: () => Promise.all(/*! import() | modules-last-movie-last-movie-module */[__webpack_require__.e("common"), __webpack_require__.e("modules-last-movie-last-movie-module")]).then(__webpack_require__.bind(null, /*! ../modules/last-movie/last-movie.module */ "./src/app/modules/last-movie/last-movie.module.ts")).then(m => m.LastMovieModule)
+                canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
+                loadChildren: () => Promise.all(/*! import() | last-movie-last-movie-module */[__webpack_require__.e("common"), __webpack_require__.e("last-movie-last-movie-module")]).then(__webpack_require__.bind(null, /*! ../last-movie/last-movie.module */ "./src/app/modules/last-movie/last-movie.module.ts")).then(m => m.LastMovieModule)
             },
             {
                 path: '',
+                canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
                 redirectTo: '/tabs/list',
                 pathMatch: 'full'
             }
@@ -70,10 +75,10 @@ TabsPageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 
 /***/ }),
 
-/***/ "./src/app/tabs/tabs.module.ts":
-/*!*************************************!*\
-  !*** ./src/app/tabs/tabs.module.ts ***!
-  \*************************************/
+/***/ "./src/app/modules/tabs/tabs.module.ts":
+/*!*********************************************!*\
+  !*** ./src/app/modules/tabs/tabs.module.ts ***!
+  \*********************************************/
 /*! exports provided: TabsPageModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -85,10 +90,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _tabs_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tabs-routing.module */ "./src/app/tabs/tabs-routing.module.ts");
-/* harmony import */ var _tabs_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tabs.page */ "./src/app/tabs/tabs.page.ts");
+/* harmony import */ var _tabs_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tabs-routing.module */ "./src/app/modules/tabs/tabs-routing.module.ts");
+/* harmony import */ var _tabs_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tabs.page */ "./src/app/modules/tabs/tabs.page.ts");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
-/* harmony import */ var _app_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../app.module */ "./src/app/app.module.ts");
+/* harmony import */ var _app_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../app.module */ "./src/app/app.module.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
 
@@ -125,23 +130,23 @@ TabsPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "./src/app/tabs/tabs.page.scss":
-/*!*************************************!*\
-  !*** ./src/app/tabs/tabs.page.scss ***!
-  \*************************************/
+/***/ "./src/app/modules/tabs/tabs.page.scss":
+/*!*********************************************!*\
+  !*** ./src/app/modules/tabs/tabs.page.scss ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RhYnMvdGFicy5wYWdlLnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-content {\n  --ion-background-color:#ccc;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hcml2ZXJvL3BvcHVsYXItbW92aWVzL3NyYy9hcHAvbW9kdWxlcy90YWJzL3RhYnMucGFnZS5zY3NzIiwic3JjL2FwcC9tb2R1bGVzL3RhYnMvdGFicy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFSSwyQkFBQTtBQ0FKIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy90YWJzL3RhYnMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWNvbnRlbnR7XG5cbiAgICAtLWlvbi1iYWNrZ3JvdW5kLWNvbG9yOiNjY2M7XG59XG4iLCJpb24tY29udGVudCB7XG4gIC0taW9uLWJhY2tncm91bmQtY29sb3I6I2NjYztcbn0iXX0= */");
 
 /***/ }),
 
-/***/ "./src/app/tabs/tabs.page.ts":
-/*!***********************************!*\
-  !*** ./src/app/tabs/tabs.page.ts ***!
-  \***********************************/
+/***/ "./src/app/modules/tabs/tabs.page.ts":
+/*!*******************************************!*\
+  !*** ./src/app/modules/tabs/tabs.page.ts ***!
+  \*******************************************/
 /*! exports provided: TabsPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -158,8 +163,8 @@ let TabsPage = class TabsPage {
 TabsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-tabs',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./tabs.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/tabs/tabs.page.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./tabs.page.scss */ "./src/app/tabs/tabs.page.scss")).default]
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./tabs.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/tabs/tabs.page.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./tabs.page.scss */ "./src/app/modules/tabs/tabs.page.scss")).default]
     })
 ], TabsPage);
 
@@ -168,4 +173,4 @@ TabsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /***/ })
 
 }]);
-//# sourceMappingURL=tabs-tabs-module-es2015.js.map
+//# sourceMappingURL=modules-tabs-tabs-module-es2015.js.map

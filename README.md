@@ -15,7 +15,7 @@ npm install
 ```
 Develop Browser Run: ionic serve
 Develop Android Build: ionic build
-Develop Android Add: ionic cordoba platform add android
+Develop Android Add: ionic cordova platform add android
 Develop Android Add: ionic cordova run android
 ```
 

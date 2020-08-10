@@ -15,10 +15,16 @@ export class ListMoviesComponent implements OnInit {
   pages = INITIAL_PAGES_NUMBER;
 
   constructor(private themoviedbService: ThemoviedbService) {
-    this.themoviedbService.listMovies(this.pages,sessionStorage.getItem('lang')).subscribe(data=>{
+    this.themoviedbService.listMovies(this.pages,sessionStorage.getItem('lang')).subscribe(
+      data=>{
       this.listMovies = data;
-      console.log(this.listMovies);
-    })
+      sessionStorage.setItem('listMovies', JSON.stringify(data));
+      },
+      err=>{
+        console.log(err);
+        this.listMovies = sessionStorage.getItem('listMovies')? JSON.parse(sessionStorage.getItem('listMovies')): {};
+      }
+    )
   
   }
 
